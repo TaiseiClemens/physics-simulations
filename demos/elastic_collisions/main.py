@@ -8,7 +8,11 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
+    
     disks = [Disk((-2, 0.4), (1, 0), 5, 0.3), Disk((-2, -0.55), (1, 0), 5, 0.3), Disk((0, 0), (0, 0), 5, 0.3)]
+    disks = []
+    for i in range(8):
+        disks.append(Disk((i-4, 0), (1, i/2), 5, 0.3))
     
     while True:
         for event in pygame.event.get():

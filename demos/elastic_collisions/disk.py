@@ -1,6 +1,6 @@
 import pygame
 import numpy as np
-from constants import SCREEN_HEIGHT, PIXELS_PER_METER
+from constants import SCREEN_HEIGHT, PIXELS_PER_METER, SCREEN_WIDTH
 
 class Disk:
     def __init__(self, position, velocity, mass, radius):
@@ -15,8 +15,20 @@ class Disk:
         x_pixel, y_pixel = x * PIXELS_PER_METER + x_offset, y * PIXELS_PER_METER + y_offset
         y_pixel = SCREEN_HEIGHT - y_pixel
         draw_position = (x_pixel, y_pixel)
-        print(draw_position)
         pygame.draw.circle(screen, "white", draw_position, self.radius, 5)
+
+        # If out of bounds, go back
+        if not 0 < x_pixel < SCREEN_WIDTH:
+            if 0 > x_pixel:
+                self.velocity = tuple(np.array([abs(self.velocity[0]), self.velocity[1]]))
+            else:
+                self.velocity = tuple(np.array([-abs(self.velocity[0]), self.velocity[1]]))
+        if not 0 < y_pixel < SCREEN_HEIGHT:
+            if 0 > y_pixel:
+                self.velocity = tuple(np.array([self.velocity[0], -abs(self.velocity[1])]))
+            else:
+                self.velocity = tuple(np.array([self.velocity[0], abs(self.velocity[1])]))
+
 
     def update(self, dt, disks):
 
@@ -53,7 +65,7 @@ class Disk:
         x += vx * dt
         y += vy * dt
         self.position = (x, y)
-                
+        
 
 
 
