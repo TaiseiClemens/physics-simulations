@@ -170,12 +170,4 @@ The project uses:
 
 ## License
 
-[Add your license here]
-
-## Author
-
-[Add your name/info here]
-
-## Acknowledgments
-
-These simulations were created for educational presentations to demonstrate classical mechanics concepts through interactive visualization.
+This is a personal educational project. Feel free to use, modify, and distribute the code as you wish.
