@@ -1,6 +1,6 @@
 import pygame
 from projectile import Projectile
-from constants import SCREEN_WIDTH, SCREEN_HEIGHT, PIXELS_PER_METER
+from constants import SCREEN_WIDTH, SCREEN_HEIGHT, PIXELS_PER_METER, TIME_MULTIPLIER
 
 def main():
     pygame.init()
@@ -22,7 +22,7 @@ def main():
 
 
         pygame.display.flip()
-        dt = clock.tick(60) / 1000
+        dt = clock.tick(60) / 1000 * TIME_MULTIPLIER
 
 if __name__ == "__main__":
     main()

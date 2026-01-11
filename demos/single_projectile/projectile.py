@@ -19,14 +19,6 @@ class Projectile:
     
     def update(self, dt):
 
-        def add_tuples(a, b):
-            return tuple(map(lambda x: sum(x), zip(a, b)))
-        def multiply_tuple(a, m):
-            return tuple(map(lambda x: x * m, a))
-
-        #self.position = add_tuples(self.position, multiply_tuple(self.velocity, dt))
-        #self.velocity = add_tuples(self.velocity, multiply_tuple(self.acceleration, dt))
-        
         x, y = self.position
         vx, vy = self.velocity
         ax, ay = self.acceleration
